@@ -1,0 +1,7 @@
+初始化时使用NRF_MESH_IRQ_PRIORITY_THREAD设置承载事件中断优先级则无法正常获取SCAN事件
+因为当前依赖于SD的事件上报
+使用该优先级表示在mainloop中处理承载事件
+
+只能使用NRF_MESH_IRQ_PRIORITY_LOWEST优先级
+但是发送动作也不能在mainloop中进行
+需在timer中完成
